@@ -27,6 +27,8 @@ public class JavaExampleActivity extends AppCompatActivity {
             }
         }).start();
 
+
+
     }
 
     private void setViewData(boolean init, int i) {
