@@ -1,0 +1,31 @@
+task setGitHooks(type: Copy) {
+    println("installGitHooks task")
+    from(rootProject.rootDir.absolutePath + File.separatorChar + "config" + File.separatorChar + "githook") {
+        include "**"
+    }
+    into rootProject.rootDir.absolutePath + File.separatorChar + ".git" + File.separatorChar + "hooks"
+    fileMode 0755
+}
+
+task setGitTemplate(type: Exec) {
+    println("setDefaultTemplate")
+    workingDir './'
+    def commands = []
+    if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+        commands << "cmd"
+        commands << "/c"
+    } else {
+        commands << 'bash'
+        commands << '-c'
+    }
+    commands << "git config --local commit.template config/bi_android_git.template"
+    print(commands)
+    commandLine = commands
+}
+
+task initEnv {
+    dependsOn 'setGitHooks'
+    dependsOn 'setGitTemplate'
+}
+
+build.dependsOn initEnv

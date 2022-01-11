@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply from: rootProject.file('config/init_env.gradle')
+apply from: rootProject.file('config/checkstyle.gradle')
 
 android {
     compileSdkVersion 31
