@@ -6,10 +6,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class JavaExampleActivity extends AppCompatActivity {
+
     private boolean init;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_java_example);
 
@@ -17,8 +19,10 @@ public class JavaExampleActivity extends AppCompatActivity {
         setViewData(init, 1);
 
         new Thread(new Runnable() {
+
             @Override
             public void run() {
+
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {
@@ -27,10 +31,11 @@ public class JavaExampleActivity extends AppCompatActivity {
             }
         }).start();
 
-
-
+        System.out.println("hahah");
     }
 
-    private void setViewData(boolean init,int i) {
+    private void setViewData(boolean init, int i) {
+
         init = !init;
-    }}
+    }
+}
