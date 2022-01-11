@@ -31,7 +31,6 @@ public class JavaExampleActivity extends AppCompatActivity {
 
     }
 
-    private void setViewData(boolean init, int i) {
+    private void setViewData(boolean init,int i) {
         init = !init;
-    }
-}
+    }}
